@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorials — CrehzTracker</title>
+<meta name="description" content="Short videos showing how CrehzTracker is used: onboarding, expenses, income, mileage, the receipt inbox, invoices, billable hours, 1099s, home office, profiles, themes, dictation and the pad — plus how to set up the Apple Pay and screenshot shortcuts.">
+<meta name="theme-color" content="#dcebf5">
+<meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="site.css">
+<style>
+body{color-scheme:light only}
+.nav{color:var(--ink)}
+.nav .btn-light{background:var(--copper);color:#fff}
+
+/* ---------- header ---------- */
+.thead{padding:150px 0 70px;background:radial-gradient(120% 90% at 85% 10%,oklch(97% 0.02 215) 0%,oklch(92% 0.045 220) 45%,oklch(85% 0.07 228) 100%)}
+.thead h1{font-size:clamp(40px,6vw,68px);font-weight:800;letter-spacing:-.035em}
+.thead .lede{margin-top:18px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.toc a{text-decoration:none;font:600 13.5px/1 var(--head);padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.7);color:var(--ink);border:1px solid rgba(0,40,80,.1)}
+.toc a:hover{background:#fff}
+
+/* ---------- a tutorial ---------- */
+.tut{padding:90px 0;border-top:1px solid var(--line)}
+.tut .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.tut.flip .copy{order:2}
+.tut .copy h2{margin:14px 0 14px;font-size:clamp(28px,3.6vw,40px)}
+.tut .copy p.lead{color:var(--ink-2);font-size:17.5px;margin-bottom:22px;max-width:520px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:520px}
+.steps li{display:grid;grid-template-columns:30px 1fr;gap:12px;font-size:15.5px;line-height:1.5}
+.steps li b{font-family:var(--head)}
+.steps .n{width:26px;height:26px;border-radius:999px;background:var(--copper);color:#fff;font:800 12px/26px var(--head);text-align:center}
+.tip{margin-top:20px;padding:14px 16px;border-radius:14px;background:var(--copper-soft);font-size:14.5px;line-height:1.5;max-width:520px}
+.tip b{font-family:var(--head)}
+.tut .media{display:flex;justify-content:center;position:relative}
+.tut .media .blob{position:absolute;inset:8% 6%;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--copper-soft);z-index:0}
+.tut .media .phone{width:300px;z-index:1}
+.phone .screen video{cursor:pointer}
+.vbtn{position:absolute;z-index:3;left:50%;bottom:4%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:#fff;border:0;border-radius:999px;padding:8px 14px;font:700 12.5px/1 var(--head);cursor:pointer;backdrop-filter:blur(6px)}
+.phone{position:relative}
+.dur{display:inline-block;font:700 12px/1 var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--copper);margin-left:10px}
+
+/* ---------- shortcuts (illustrated) ---------- */
+.sc{padding:100px 0}
+.sc .intro{max-width:720px;margin-bottom:50px}
+.sc h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px}
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;padding:60px 0;border-top:1px solid var(--line)}
+.guide h3{font-size:24px;margin-bottom:10px}
+.guide p.lead{color:var(--ink-2);font-size:16.5px;margin-bottom:20px}
+.mock{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 30px 60px -40px rgba(20,20,60,.4);font-size:14px}
+.mock .bar{display:flex;align-items:center;justify-content:space-between;font:700 15px/1 var(--head);padding:4px 4px 14px}
+.mock .bar span{color:var(--copper);font-weight:600;font-size:14px}
+.act{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--sand);margin-bottom:10px}
+.act .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:16px;color:#fff;flex:none}
+.act .ic.ct{background:var(--copper)}
+.act .ic.wal{background:#111}
+.act .ic.sys{background:#3a7bd5}
+.act b{font-family:var(--head);display:block;font-size:14.5px}
+.act small{display:block;color:var(--ink-2);font-size:12.5px;margin-top:2px}
+.chip{display:inline-block;padding:3px 8px;border-radius:7px;background:var(--copper);color:#fff;font:700 12px/1.3 var(--head)}
+.chip.ghost{background:transparent;color:var(--ink-2);border:1px dashed var(--line)}
+.mock .row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);margin-bottom:8px}
+.mock .toggle{width:40px;height:24px;border-radius:999px;background:#34c759;position:relative}
+.mock .toggle::after{content:"";position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:#fff}
+.mock .toggle.off{background:#ccc}.mock .toggle.off::after{right:auto;left:2px}
+.warn{margin-top:22px;padding:16px 18px;border-radius:16px;background:oklch(95% 0.05 25);border:1px solid oklch(85% 0.08 25);font-size:14.5px;line-height:1.55}
+.warn b{font-family:var(--head);color:oklch(45% 0.18 25)}
+.places{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.places div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.places b{display:block;font:700 14px/1.3 var(--head);margin-bottom:3px}
+
+/* ---------- cta ---------- */
+.cta{padding:100px 0 130px;text-align:center}
+.cta h2{font-size:clamp(32px,5vw,56px)}
+.cta .lede{margin:18px auto 30px}
+.store{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;text-decoration:none;border-radius:12px;padding:9px 18px 9px 14px}
+.store svg{width:26px;height:26px}
+.store small{display:block;font:500 11px/1 var(--body);opacity:.85}
+.store b{display:block;font:600 20px/1.1 var(--body)}
+
+@media (max-width:980px){
+  .nav ul{display:none}.nav .btn{margin-left:auto}
+  .thead{padding:120px 0 60px}
+  .tut .wrap,.guide{grid-template-columns:1fr}
+  .tut.flip .copy{order:0}
+  .tut .media{order:-1}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}.wrap{padding:0 16px}
+  .tut{padding:70px 0}.tut .media .phone{width:240px}
+  .places{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav" aria-label="Main">
+  <a class="brand" href="index.html"><img src="img/icon-256.png" alt="">CrehzTracker</a>
+  <ul>
+    <li><a href="index.html#capture">How it works</a></li>
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="tutorials.html" aria-current="page">Tutorials</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+  </ul>
+  <a class="btn btn-light js-store" href="index.html#get">Download</a>
+</nav>
+
+<header class="thead pal pal-arctic">
+  <div class="wrap">
+    <span class="eyebrow">Tutorials</span>
+    <h1>See it done, in under a minute.</h1>
+    <p class="lede">Each video is 30 to 45 seconds of the real app. Pick what you need below, or start at the top.</p>
+    <nav class="toc" aria-label="Tutorials">
+      <a href="#onboarding">Onboarding</a><a href="#expenses">Expenses</a><a href="#income">Income</a><a href="#mileage">Mileage</a>
+      <a href="#receipt-inbox">Receipt Inbox</a><a href="#receipts-invoices">Receipts &amp; Invoices</a><a href="#billable-hours">Billable Hours</a>
+      <a href="#recipients">1099 Recipients</a><a href="#home-office">Home Office</a><a href="#profiles">Profiles</a><a href="#themes">Themes</a>
+      <a href="#dictation">Say it</a><a href="#notepad">Write it</a><a href="#shortcuts">Apple Pay &amp; screenshots</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ====== ONBOARDING ====== -->
+<section class="tut pal pal-arctic" id="onboarding">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">1 · Getting started<span class="dur">44 s</span></span>
+      <h2>Create an account and set up your books</h2>
+      <p class="lead">No password. Sign in with Apple or type an email and enter the 6-digit code it sends you. Then five quick questions.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Create account</b> → Continue with Apple, or Continue with email and enter the code.</span></li>
+        <li><span class="n">2</span><span><b>Confirm you are 18 or over.</b> We never ask for a date of birth.</span></li>
+        <li><span class="n">3</span><span><b>Pick a profile:</b> Musician &amp; Artist, Consulting and Business, or Personal. You can change it later.</span></li>
+        <li><span class="n">4</span><span><b>Name, state and filing status</b> — these drive the tax estimate.</span></li>
+        <li><span class="n">5</span><span><b>1099 threshold and permissions,</b> then Start tracking.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/onboarding.mp4" poster="media/tutorials/onboarding-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== EXPENSES ====== -->
+<section class="tut flip pal pal-lagoon" id="expenses">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">2 · Expenses<span class="dur">42 s</span></span>
+      <h2>Expenses</h2>
+      <p class="lead">Every expense on one page, filtered by category. Tap one to open it; tap + to add one.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Filter chips</b> narrow the list to a category. <b>All</b> brings it back.</span></li>
+        <li><span class="n">2</span><span><b>Tap an entry</b> to open its receipt: category, business or personal, budget, notes.</span></li>
+        <li><span class="n">3</span><span><b>Tap +</b> for Scan Receipt, Batch Upload or Enter Manually.</span></li>
+        <li><span class="n">4</span><span>On the manual form, <b>Choose Category</b> lists your own categories first.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/expenses.mp4" poster="media/tutorials/expenses-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== INCOME ====== -->
+<section class="tut pal pal-violet" id="income">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">3 · Income<span class="dur">42 s</span></span>
+      <h2>Income and the tax estimate</h2>
+      <p class="lead">Income by source, W-2 kept apart from business, and what to put away each quarter.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Business income by source</b> — gigs, bookings, royalties, merch.</span></li>
+        <li><span class="n">2</span><span><b>Tax allocation</b> uses your state and filing status to estimate the quarterly set-aside.</span></li>
+        <li><span class="n">3</span><span><b>Tap an entry</b> to switch it between Business income and W-2.</span></li>
+        <li><span class="n">4</span><span><b>Tap +</b> to add income, or scan a payment screenshot.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/income.mp4" poster="media/tutorials/income-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MILEAGE ====== -->
+<section class="tut flip pal pal-arctic" id="mileage">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">4 · Mileage<span class="dur">40 s</span></span>
+      <h2>Mileage</h2>
+      <p class="lead">Drives are detected automatically when Auto tracking is on, with the deduction worked out at the IRS rate. Or add one by hand.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Auto tracking</b> on the banner — the only thing location is used for.</span></li>
+        <li><span class="n">2</span><span><b>Add a drive:</b> miles, date, from, to, purpose, Business or Personal.</span></li>
+        <li><span class="n">3</span><span><b>Tap a drive</b> to reclassify it. Only business drives count toward the deduction.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/mileage.mp4" poster="media/tutorials/mileage-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== RECEIPT INBOX ====== -->
+<section class="tut pal pal-blush" id="receipt-inbox">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">5 · Receipt Inbox<span class="dur">40 s</span></span>
+      <h2>Receipt Inbox</h2>
+      <p class="lead">Forward an emailed receipt to your own CrehzTracker address and it arrives here, already read.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>More → Receipt Inbox.</b> Your forwarding address is at the top — Copy it once.</span></li>
+        <li><span class="n">2</span><span>Each receipt shows vendor, amount, date and a suggested category.</span></li>
+        <li><span class="n">3</span><span><b>Tap the category</b> to change it, then <b>Add</b>. It becomes an expense.</span></li>
+        <li><span class="n">4</span><span><b>Dismiss</b> anything that is not yours. Duplicates are flagged.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/receipt-inbox.mp4" poster="media/tutorials/receipt-inbox-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== RECEIPTS & INVOICES ====== -->
+<section class="tut flip pal pal-lagoon" id="receipts-invoices">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">6 · Receipts &amp; Invoices<span class="dur">40 s</span></span>
+      <h2>Receipts &amp; Invoices</h2>
+      <p class="lead">Every receipt image you have scanned and every invoice you have raised, by year and month, searchable.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>More → Receipts &amp; Invoices.</b> Years, then months.</span></li>
+        <li><span class="n">2</span><span><b>Tap a receipt</b> to see it full size. Export a month as a .zip or PDF for your accountant.</span></li>
+        <li><span class="n">3</span><span>The <b>Invoices</b> tab lists what you have raised from Billable Hours.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/receipts-invoices.mp4" poster="media/tutorials/receipts-invoices-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BILLABLE HOURS ====== -->
+<section class="tut pal pal-violet" id="billable-hours">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">7 · Billable Hours<span class="dur">42 s</span></span>
+      <h2>Billable Hours and invoices</h2>
+      <p class="lead">Start a timer for a client, stop it, and raise a numbered invoice with your own services and rates.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Type who it is for</b> and press ▶. The timer runs until you Stop and save.</span></li>
+        <li><span class="n">2</span><span><b>Edit the session:</b> service, hours and rate. The line total is worked out for you.</span></li>
+        <li><span class="n">3</span><span>Under <b>Not Yet Billed</b>, tap <b>Invoice</b>. It gets the next number (CT001, CT002 …).</span></li>
+        <li><span class="n">4</span><span>Choose <b>how they pay</b>, add your logo if you like, then <b>Raise and export</b> as PDF.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/billable-hours.mp4" poster="media/tutorials/billable-hours-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 1099 ====== -->
+<section class="tut flip pal pal-arctic" id="recipients">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">8 · 1099 Recipients<span class="dur">38 s</span></span>
+      <h2>1099 Recipients</h2>
+      <p class="lead">Everyone you have paid, measured against the reporting threshold all year — so January is not a surprise.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>More → 1099 Recipients.</b> Anyone over the threshold is marked <b>1099 Required</b>.</span></li>
+        <li><span class="n">2</span><span><b>Tap a name</b> for the payment history behind the total.</span></li>
+        <li><span class="n">3</span><span>The threshold itself is yours to set in <b>Settings → Money</b>.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/1099.mp4" poster="media/tutorials/1099-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== HOME OFFICE ====== -->
+<section class="tut pal pal-blush" id="home-office">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">9 · Home Office<span class="dur">40 s</span></span>
+      <h2>Home Office deduction</h2>
+      <p class="lead">Three questions decide whether you qualify; your space decides how much.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Used only for work, used regularly, your main place of business</b> — all three on.</span></li>
+        <li><span class="n">2</span><span><b>Office sq ft and whole-home sq ft,</b> plus months used this year.</span></li>
+        <li><span class="n">3</span><span>The estimate appears at the top, with the <b>simplified and regular</b> methods side by side.</span></li>
+      </ol>
+      <div class="tip"><b>Planning only.</b> IRS Publication 587 figures; confirm with a tax professional before filing.</div>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/home-office.mp4" poster="media/tutorials/home-office-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROFILES ====== -->
+<section class="tut flip pal pal-lagoon" id="profiles">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">10 · Profiles<span class="dur">42 s</span></span>
+      <h2>Switching profiles</h2>
+      <p class="lead">Musician &amp; Artist, Consulting and Business, or Personal — with one shared set of books or separate ones per profile.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Settings → Account</b> lists the three profiles. Tap one to switch; the app asks first.</span></li>
+        <li><span class="n">2</span><span><b>Separate books per profile</b> keeps each profile's entries apart. You choose what happens to what you already have.</span></li>
+        <li><span class="n">3</span><span>With separate books on, a <b>badge at the top of every page</b> names the profile. Tap it to switch without leaving the page.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/profile-switcher.mp4" poster="media/tutorials/profile-switcher-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== THEMES ====== -->
+<section class="tut pal pal-violet" id="themes">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">11 · Appearance<span class="dur">42 s</span></span>
+      <h2>Changing themes</h2>
+      <p class="lead">Seven colour palettes, light or dark, and a text-size slider. Make it yours.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Settings → Appearance.</b></span></li>
+        <li><span class="n">2</span><span><b>System, Light or Dark</b> at the top.</span></li>
+        <li><span class="n">3</span><span><b>Colour theme:</b> Warm Sand, Blush, Lagoon, Violet, Periwinkle, Luxury Champagne, Arctic Blue and more. Tap one and the whole app follows.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/themes.mp4" poster="media/tutorials/themes-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DICTATION ====== -->
+<section class="tut flip pal pal-arctic" id="dictation">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">12 · Say it<span class="dur">40 s</span></span>
+      <h2>Two taps to dictate</h2>
+      <p class="lead">Double-tap the word <b>Expenses</b> or <b>Income</b> at the top of the page and just say it.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Double-tap the page title.</b> The first time, iOS asks for Speech Recognition and the Microphone — Allow both.</span></li>
+        <li><span class="n">2</span><span><b>Speak:</b> “Chipotle, fourteen fifty, lunch with the band.” Vendor, amount and date in any order.</span></li>
+        <li><span class="n">3</span><span>Tap <b>Done</b> or just stop talking. The receipt comes up for you to check, then save.</span></li>
+      </ol>
+      <div class="tip">Nothing is saved until you check the receipt.</div>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/dictation.mp4" poster="media/tutorials/dictation-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== NOTEPAD ====== -->
+<section class="tut pal pal-blush" id="notepad">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">13 · Write it<span class="dur">42 s</span></span>
+      <h2>Three taps for the pad</h2>
+      <p class="lead">Triple-tap the page title and write the entry with a finger. Scrawl is fine.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Triple-tap Expenses or Income.</b> A lined pad opens with the iOS pen tools.</span></li>
+        <li><span class="n">2</span><span><b>Write it:</b> “Gas 42.10”. Vendor, amount and date, any order. A note is fine too.</span></li>
+        <li><span class="n">3</span><span>Tap <b>Read it</b>. The first time, the app explains what is sent to be read and asks you to allow AI data sharing.</span></li>
+        <li><span class="n">4</span><span>The receipt comes up with what it read. Check it, save it.</span></li>
+      </ol>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/notepad.mp4" poster="media/tutorials/notepad-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SHORTCUTS ====== -->
+<section class="sc pal pal-sand" id="shortcuts">
+  <div class="wrap">
+    <div class="intro rv">
+      <span class="eyebrow">Set up once on your iPhone</span>
+      <h2>Apple Pay, tap-to-enter and the screenshot shortcut</h2>
+      <p class="lede" style="margin-top:14px">These run in Apple's Shortcuts app, not inside CrehzTracker, so they are built by hand on your own phone. Each takes a couple of minutes. Requires iOS 17 or later.</p>
+    </div>
+
+    <!-- Apple Pay -->
+    <div class="guide" id="apple-pay">
+      <div class="rv">
+        <h3>Tap to pay → an expense, by itself</h3>
+        <p class="lead">Pay with Apple Pay and the expense files itself — amount, merchant, category — before you have left the register.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><span><b>Shortcuts → Automation tab → +</b></span></li>
+          <li><span class="n">2</span><span>Choose <b>Wallet</b> (called Transaction before iOS 26).</span></li>
+          <li><span class="n">3</span><span>Pick the card(s) you tap with. Turn <b>Run Immediately ON</b> and <b>Notify When Run OFF</b>, then Next.</span></li>
+          <li><span class="n">4</span><span><b>New Blank Automation → Add Action</b> → search CrehzTracker → <b>Log Tap</b>.</span></li>
+          <li><span class="n">5</span><span><b>Amount:</b> tap the field, tap <b>Shortcut Input</b> on the variable bar, then <b>tap the chip it inserts</b> and choose <b>Amount</b>.</span></li>
+          <li><span class="n">6</span><span><b>Merchant:</b> same again, choosing <b>Merchant</b>. Tap ✓ to save.</span></li>
+        </ol>
+        <div class="warn"><b>The one mistake that costs an evening.</b> Inserting Shortcut Input is not enough — you must tap the chip afterwards and pick the property. On its own it resolves to the merchant; do it twice and you get the merchant twice, no amount, and nothing files. A real variable deletes whole on one backspace; pale placeholder text is an empty field.</div>
+      </div>
+      <div class="rv">
+        <div class="mock">
+          <div class="bar">Wallet automation <span>Done</span></div>
+          <div class="row"><span>When I tap my Visa ····6411</span><span class="chip">Any amount</span></div>
+          <div class="row"><span>Run Immediately</span><span class="toggle"></span></div>
+          <div class="row"><span>Notify When Run</span><span class="toggle off"></span></div>
+          <div style="height:10px"></div>
+          <div class="act"><span class="ic ct">CT</span><div><b>Log tap of <span class="chip">Amount</span> at <span class="chip">Merchant</span></b><small>CrehzTracker · two solid chips, both from Shortcut Input</small></div></div>
+        </div>
+        <div class="tip" style="margin-top:14px">It should read <b>Log tap of [Amount] at [Merchant]</b>. Then tap to pay something small and open CrehzTracker: the expense should be in your ledger with the merchant tidied and a category chosen.</div>
+      </div>
+    </div>
+
+    <!-- Tap to enter -->
+    <div class="guide" id="tap-to-enter">
+      <div class="rv">
+        <h3>What a tap becomes</h3>
+        <p class="lead">A tap is an ordinary expense straight away — no queue, no review — and you can always open it to change the category.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><span>The merchant is tidied the way scanned receipts are: <b>SQ *BLUE BOTTLE #12 NASHVILLE TN → Blue Bottle Nashville</b>.</span></li>
+          <li><span class="n">2</span><span>The category comes from <b>your own history</b> with that merchant, or the closest match.</span></li>
+          <li><span class="n">3</span><span>See <b>“Couldn't read a tap: …”</b>? It arrived but could not be parsed. Send the quoted text to info@crehztracker.com — it is exactly what is needed to fix it.</span></li>
+          <li><span class="n">4</span><span>Nothing at all? Check the automation is saved and enabled with Run Immediately on.</span></li>
+        </ol>
+        <div class="warn"><b>What it does not catch:</b> online and in-app Apple Pay (the trigger is a physical tap), cash or a physical card, refunds, and cards whose issuer never raises the trigger — Capital One is one. Those purchases can be scanned or dictated instead.</div>
+      </div>
+      <div class="rv">
+        <div class="mock">
+          <div class="bar">Expenses <span>Today</span></div>
+          <div class="act"><span class="ic wal"></span><div><b>Blue Bottle Nashville &nbsp;$6.75</b><small>Food · just now · logged from a tap</small></div></div>
+          <div class="act"><span class="ic wal"></span><div><b>Sweetwater Studio &nbsp;$62.00</b><small>Studio Rental · 2:14 PM · logged from a tap</small></div></div>
+          <div class="act" style="background:oklch(95% 0.05 25)"><span class="ic" style="background:oklch(55% 0.18 25)">!</span><div><b>Couldn't read a tap</b><small>“SQ *… 12.4O” — send us this text</small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot income -->
+    <div class="guide" id="screenshot">
+      <div class="rv">
+        <h3>Log income from a payment screenshot</h3>
+        <p class="lead">A Zelle email, a Cash App or Venmo receipt, a PayPal notice — anything that confirms money moved. One press reads it and opens the income form filled in.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><span><b>Shortcuts → + → Add Action.</b></span></li>
+          <li><span class="n">2</span><span>Search <b>Take Screenshot</b>, add it.</span></li>
+          <li><span class="n">3</span><span>Search <b>Log Income from Screenshot</b>, add it. Its input should read <b>Screenshot</b>.</span></li>
+          <li><span class="n">4</span><span>Name it <b>Log Income</b> and tap Done. That is the whole thing.</span></li>
+          <li><span class="n">5</span><span>Open a payment confirmation so it fills the screen, fire the shortcut, and check the form. <b>Nothing is saved until you tap save.</b></span></li>
+        </ol>
+        <div class="places">
+          <div><b>Action Button</b>Settings → Action Button → Shortcut → Log Income</div>
+          <div><b>Back Tap</b>Settings → Accessibility → Touch → Back Tap</div>
+          <div><b>Control Center</b>Add the Shortcuts control and pick it</div>
+          <div><b>Lock Screen</b>Replace the torch or camera button</div>
+        </div>
+        <div class="warn" style="margin-top:16px"><b>Check the direction.</b> “Wreh sent you money” is money in for the receiver and money out if you are Wreh. The app is told your name and decides from it; when it cannot tell, it says so instead of guessing.</div>
+      </div>
+      <div class="rv">
+        <div class="mock">
+          <div class="bar">Log Income <span>Done</span></div>
+          <div class="act"><span class="ic sys">▣</span><div><b>Take Screenshot</b><small>Shortcuts · system action</small></div></div>
+          <div style="text-align:center;color:var(--ink-2);font-size:18px;line-height:1">↓</div>
+          <div class="act" style="margin-top:8px"><span class="ic ct">CT</span><div><b>Log Income from <span class="chip">Screenshot</span></b><small>CrehzTracker · reads amount, who from, how it arrived, date</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="cta pal pal-arctic" id="get">
+  <div class="wrap rv">
+    <h2>Ready when you are.</h2>
+    <p class="lede">Free on the App Store. Sign in with Apple or your email — no password, no card.</p>
+    <a class="store js-store" href="index.html#get" aria-label="Download on the App Store">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.77c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.73 2.2 1.1-.05 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.14.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.3-.88-2.32-3.5zM14.2 6.3c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.65-1.05 1.69-.92 2.68.97.08 1.96-.49 2.56-1.23z"/></svg>
+      <span><small>Download on the</small><b>App Store</b></span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="index.html"><img src="img/icon-256.png" alt="">CrehzTracker</a>
+        <p>Books for the self-employed. Expenses, income, mileage, 1099s and tax set-aside, on your iPhone.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="index.html#capture">How it works</a></li><li><a href="index.html#features">Features</a></li><li><a href="tutorials.html">Tutorials</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="https://privacy.crehztracker.com/support/">Support</a></li><li><a href="mailto:info@crehztracker.com">info@crehztracker.com</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="https://privacy.crehztracker.com">Privacy policy</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr">2026</span> CrehzTracker. Estimates for planning, not tax advice.</span>
+      <span>Apple, Apple Pay, Shortcuts and the App Store are trademarks of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var APP_STORE_URL = '';
+(function(){
+  if (APP_STORE_URL) document.querySelectorAll('.js-store').forEach(function(a){ a.href = APP_STORE_URL; a.rel = 'noopener'; });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || reduce) { els.forEach(function(e){ e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  }
+  // one video plays at a time; a tap on the phone or the button toggles it
+  var all = document.querySelectorAll('.tut video');
+  function stopOthers(v){ all.forEach(function(x){ if (x!==v && !x.paused){ x.pause(); label(x); } }); }
+  function label(v){ var b = v.closest('.phone').querySelector('.vbtn'); b.textContent = v.paused ? '▶ Play' : '❚❚ Pause'; }
+  all.forEach(function(v){
+    var ph = v.closest('.phone');
+    function toggle(){ if (v.paused){ stopOthers(v); v.play().catch(function(){}); } else { v.pause(); } label(v); }
+    ph.querySelector('.vbtn').addEventListener('click', toggle);
+    v.addEventListener('click', toggle);
+    v.addEventListener('ended', function(){ label(v); });
+  });
+  if ('IntersectionObserver' in window) {
+    var vo = new IntersectionObserver(function(es){ es.forEach(function(e){ var v = e.target; if (!e.isIntersecting && !v.paused){ v.pause(); label(v); } }); }, {threshold:.2});
+    all.forEach(function(v){ vo.observe(v); });
+  }
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
