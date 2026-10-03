@@ -148,6 +148,9 @@ section{position:relative}
 .sim .phone{width:320px;z-index:1}
 .sim .screen{background:var(--paper)}
 .sim .screen iframe{position:absolute;top:0;left:0;width:402px;height:874px;border:0;transform-origin:0 0;background:#fff}
+.sbar{position:absolute;top:0;left:0;right:0;height:6.4%;z-index:2;pointer-events:none;display:flex;align-items:center;justify-content:space-between;padding:0 9% 0 10%;font:600 14px/1 var(--body);color:#111}
+.sbar.dark{color:#fff}
+.sbar svg{height:11px;width:auto}
 .sim .loading{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:var(--paper);font:600 14px/1 var(--head);color:var(--ink-2);transition:opacity .4s}
 .sim .loading.off{opacity:0;pointer-events:none}
 .fine{font-size:13.5px;color:var(--ink-2);margin-top:18px;max-width:520px;line-height:1.5}
@@ -503,6 +506,7 @@ details p a{color:var(--copper)}
     </div>
     <div class="media rv"><div class="blob"></div>
       <div class="phone"><i class="keys"></i><div class="screen">
+        <div class="sbar" id="simBar"><span>9:41</span><svg viewBox="0 0 60 12" fill="currentColor" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/><path d="M27 4.5a7 7 0 0 1 10 0l-1.3 1.3a5.2 5.2 0 0 0-7.4 0zM29.5 7a3.5 3.5 0 0 1 5 0L32 10z"/><rect x="41" y="1" width="16" height="10" rx="2.5" fill="none" stroke="currentColor"/><rect x="42.5" y="2.5" width="13" height="7" rx="1.5"/><rect x="58" y="4" width="2" height="4" rx="1"/></svg></div>
         <div class="loading" id="simLoading">Loading the app…</div>
         <iframe id="simFrame" title="CrehzTracker demo" loading="lazy"></iframe>
       </div></div>
@@ -668,12 +672,13 @@ var APP_STORE_URL = '';
 
 
   // simulator: the demo copy in an iframe, scaled to the phone's screen
-  var frame = document.getElementById('simFrame'), screen = frame.parentElement;
+  var frame = document.getElementById('simFrame'), screen = frame.parentElement, bar = document.getElementById('simBar');
   var sim = { palette:'sand', theme:'light' };
   function fit(){ var s = screen.getBoundingClientRect().width / 402; frame.style.transform = 'scale(' + s + ')'; }
   function load(extra){
     document.getElementById('simLoading').classList.remove('off');
-    frame.src = 'demo/?palette=' + sim.palette + '&theme=' + sim.theme + (extra || '') + '&v=' + Date.now();
+    bar.classList.toggle('dark', sim.theme === 'dark' || sim.palette === 'champagne');
+    frame.src = 'demo/?palette=' + sim.palette + '&theme=' + sim.theme + (extra || '');
     document.querySelectorAll('#simPals button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.palette === sim.palette ? 'true' : 'false'); });
     document.querySelectorAll('#simModes [data-theme]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.theme === sim.theme ? 'true' : 'false'); });
   }
