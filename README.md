@@ -2,7 +2,7 @@
 
 The marketing site for CrehzTracker. Plain static files: `index.html`, `tutorials.html`, `site.css`, `fonts.css`, `img/`, `media/`.
 
-Hosted with IONOS Deploy Now. Every push to `main` redeploys. The repo root is the web root — no build step.
+Hosted on GitHub Pages at crehztracker.com (DNS at IONOS). Every push to `main` redeploys. The repo root is the web root — no build step; `CNAME` names the domain and `.nojekyll` keeps Jekyll out of the way.
 
 `_tint.py` re-tints the App Store screenshots into the app's palettes; it needs the project checkout and Pillow and is not run on deploy.
 
