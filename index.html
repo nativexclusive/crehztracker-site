@@ -119,6 +119,42 @@ section{position:relative}
 .more b{display:block;font:700 16px/1.25 var(--head);margin-bottom:4px}
 .more span{color:var(--ink-2);font-size:14.5px;line-height:1.45;display:block}
 
+
+/* ---------- try it + simulator ---------- */
+.tryit{padding:110px 0 60px}
+.tasks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.task{all:unset;cursor:pointer;display:block;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px 22px;transition:transform .15s,box-shadow .15s}
+.task:hover{transform:translateY(-2px);box-shadow:0 18px 40px -24px rgba(20,20,60,.4)}
+.task:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.task b{display:flex;align-items:center;gap:10px;font:700 17px/1.3 var(--head);margin-bottom:6px}
+.task b i{font-style:normal;width:26px;height:26px;border-radius:999px;background:var(--copper);color:#fff;font:800 12px/26px var(--head);text-align:center;flex:none}
+.task span{color:var(--ink-2);font-size:15px;line-height:1.5}
+.sim{padding:60px 0 120px}
+.sim .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.sim .copy h2{margin:14px 0 14px}
+.sim .copy p.lead{color:var(--ink-2);font-size:17.5px;max-width:520px;margin-bottom:24px}
+.ctl{margin-top:8px}
+.ctl h4{font:800 12px/1 var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 10px}
+.pals{display:flex;flex-wrap:wrap;gap:8px}
+.pals button,.modes button,.reset{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:600 13.5px/1 var(--head);padding:9px 13px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.pals button i{width:14px;height:14px;border-radius:999px;display:inline-block}
+.pals button[aria-pressed="true"],.modes button[aria-pressed="true"]{background:var(--copper);border-color:var(--copper);color:#fff}
+.modes{display:inline-flex;gap:8px}
+.reset{margin-left:10px;color:var(--ink-2)}
+.hint{margin-top:22px;padding:14px 16px;border-radius:14px;background:var(--copper-soft);font-size:14.5px;line-height:1.5;max-width:520px;min-height:48px}
+.hint b{font-family:var(--head)}
+.sim .media{display:flex;justify-content:center;position:relative}
+.sim .media .blob{position:absolute;inset:8% 6%;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--copper-soft);z-index:0}
+.sim .phone{width:320px;z-index:1}
+.sim .screen{background:var(--paper)}
+.sim .screen iframe{position:absolute;top:0;left:0;width:402px;height:874px;border:0;transform-origin:0 0;background:#fff}
+.sbar{position:absolute;top:0;left:0;right:0;height:5.9%;z-index:2;pointer-events:none;display:flex;align-items:center;justify-content:space-between;padding:0 9% 0 10%;font:600 14px/1 var(--body);color:#111}
+.sbar.dark{color:#fff}
+.sbar svg{height:11px;width:auto}
+.sim .loading{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:var(--paper);font:600 14px/1 var(--head);color:var(--ink-2);transition:opacity .4s}
+.sim .loading.off{opacity:0;pointer-events:none}
+.fine{font-size:13.5px;color:var(--ink-2);margin-top:18px;max-width:520px;line-height:1.5}
+
 /* ---------- dark band (Periwinkle, after dark) ---------- */
 .reels{padding:110px 0;background:radial-gradient(90% 70% at 50% 0%,oklch(30% 0.09 268) 0%,oklch(21% 0.06 268) 55%,oklch(16% 0.04 268) 100%);color:oklch(95% 0.02 268)}
 .reels .eyebrow{color:oklch(80% 0.1 275)}
@@ -202,6 +238,9 @@ details p a{color:var(--copper)}
   .grid6{grid-template-columns:1fr 1fr}
   .more{grid-template-columns:1fr 1fr}
   .ftabs .phone{max-width:300px;margin:0 auto}
+  .sim .wrap{grid-template-columns:1fr}
+  .sim .media{order:-1}
+  .tasks{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr 1fr}
   .pcard{grid-template-columns:1fr}
 }
@@ -226,6 +265,7 @@ details p a{color:var(--copper)}
   .card .say{font-size:13px}
   .reelrow figure{max-width:240px}
   .demo .media .phone{width:240px}
+  .sim .phone{width:280px}
   .float{width:210px;font-size:13px}
   .float.f1{left:-2%}.float.f2{right:-2%}
   .fgrid{grid-template-columns:1fr}
@@ -240,6 +280,7 @@ details p a{color:var(--copper)}
   <ul>
     <li><a href="#capture">How it works</a></li>
     <li><a href="#features">Features</a></li>
+    <li><a href="#try">Try it</a></li>
     <li><a href="#why">Why CrehzTracker</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="tutorials.html">Tutorials</a></li>
@@ -419,6 +460,60 @@ details p a{color:var(--copper)}
   </div>
 </section>
 
+<!-- ================= TRY IT ================= -->
+<section class="tryit pal pal-lagoon" id="try">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Try it</span>
+      <h2 style="margin-top:14px">Don't take our word for it.</h2>
+      <p class="lede" style="margin-top:18px">The app runs right here in your browser, on a set of sample books. Pick something to try — it scrolls you to the phone.</p>
+    </div>
+    <div class="tasks">
+      <button class="task rv" type="button" data-hint="<b>Open an expense.</b> Tap <b>Expenses</b> in the tab bar, then tap any entry to see its receipt. Try a filter chip, then tap <b>+</b> to see the three ways to add one."><b><i>1</i>Open an expense</b><span>Expenses tab → tap an entry → see the receipt and its category.</span></button>
+      <button class="task rv" type="button" data-hint="<b>Check the Home Office estimate.</b> Tap <b>More</b> → <b>Home Office</b>. Flip the three toggles on, then type 300 and 2000 in the two square-foot boxes."><b><i>2</i>Estimate a home office</b><span>More → Home Office → three toggles → your space.</span></button>
+      <button class="task rv" type="button" data-hint="<b>Change the theme.</b> Tap <b>More</b> → <b>Settings</b> → <b>Appearance</b> and tap a palette — or use the buttons here beside the phone."><b><i>3</i>Change the theme</b><span>More → Settings → Appearance → pick a palette, light or dark.</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIMULATOR ================= -->
+<section class="sim pal pal-lagoon" id="simulator">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">Simulator</span>
+      <h2>The real app, in a browser.</h2>
+      <p class="lead">Everything you tap here is the same code that ships on the phone, running on sample books that live only in your browser. Nothing is sent anywhere.</p>
+      <div class="ctl">
+        <h4>Palette</h4>
+        <div class="pals" id="simPals">
+          <button type="button" data-palette="sand" aria-pressed="true"><i style="background:#c8651f"></i>Warm Sand</button>
+          <button type="button" data-palette="blush"><i style="background:#b4529a"></i>Blush</button>
+          <button type="button" data-palette="lagoon"><i style="background:#0f8f8a"></i>Lagoon</button>
+          <button type="button" data-palette="violet"><i style="background:#8a5ad6"></i>Violet</button>
+          <button type="button" data-palette="periwinkle"><i style="background:#5b63e6"></i>Periwinkle</button>
+          <button type="button" data-palette="champagne"><i style="background:#b08a4e"></i>Champagne</button>
+          <button type="button" data-palette="arctic"><i style="background:#0a8aa6"></i>Arctic Blue</button>
+        </div>
+        <h4>Appearance</h4>
+        <div class="modes" id="simModes">
+          <button type="button" data-theme="light" aria-pressed="true">☀ Light</button>
+          <button type="button" data-theme="dark">☾ Dark</button>
+          <button class="reset" type="button" id="simReset">↺ Reset the sample books</button>
+        </div>
+      </div>
+      <div class="hint" id="simHint"><b>Tip:</b> double-click <b>Expenses</b> or <b>Income</b> at the top of its page to see the dictation sheet; triple-click for the pad.</div>
+      <p class="fine">What needs the phone: the camera, dictation, the handwriting pad, Apple Pay taps and syncing. Everything else works.</p>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen">
+        <div class="sbar" id="simBar"><span>9:41</span><svg viewBox="0 0 60 12" fill="currentColor" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/><path d="M27 4.5a7 7 0 0 1 10 0l-1.3 1.3a5.2 5.2 0 0 0-7.4 0zM29.5 7a3.5 3.5 0 0 1 5 0L32 10z"/><rect x="41" y="1" width="16" height="10" rx="2.5" fill="none" stroke="currentColor"/><rect x="42.5" y="2.5" width="13" height="7" rx="1.5"/><rect x="58" y="4" width="2" height="4" rx="1"/></svg></div>
+        <div class="loading" id="simLoading">Loading the app…</div>
+        <iframe id="simFrame" title="CrehzTracker demo" loading="lazy"></iframe>
+      </div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= REELS ================= -->
 <section class="reels">
   <div class="wrap">
@@ -542,7 +637,7 @@ details p a{color:var(--copper)}
         <a class="brand" href="#top"><img src="img/icon-256.png" alt="">CrehzTracker</a>
         <p>Books for the self-employed. Expenses, income, mileage, 1099s and tax set-aside, on your iPhone.</p>
       </div>
-      <div><h4>Product</h4><ul><li><a href="#capture">How it works</a></li><li><a href="#features">Features</a></li><li><a href="#why">Why CrehzTracker</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Product</h4><ul><li><a href="#capture">How it works</a></li><li><a href="#features">Features</a></li><li><a href="#try">Try it</a></li><li><a href="#why">Why CrehzTracker</a></li><li><a href="#faq">FAQ</a></li></ul></div>
       <div><h4>Help</h4><ul><li><a href="tutorials.html">Tutorials</a></li><li><a href="https://privacy.crehztracker.com/support/">Support</a></li><li><a href="mailto:info@crehztracker.com">info@crehztracker.com</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="https://privacy.crehztracker.com">Privacy policy</a></li></ul></div>
     </div>
@@ -574,6 +669,34 @@ var APP_STORE_URL = '';
   function start(){ if (!reduce) timer = setInterval(function(){ showHero((hi+1)%hs.length); }, 3200); }
   hd.forEach(function(b,k){ b.addEventListener('click', function(){ clearInterval(timer); showHero(k); start(); }); });
   start();
+
+
+  // simulator: the demo copy in an iframe, scaled to the phone's screen
+  var frame = document.getElementById('simFrame'), screen = frame.parentElement, bar = document.getElementById('simBar');
+  var sim = { palette:'sand', theme:'light' };
+  function fit(){ var s = screen.getBoundingClientRect().width / 402; frame.style.transform = 'scale(' + s + ')'; }
+  function load(extra){
+    document.getElementById('simLoading').classList.remove('off');
+    frame.src = 'demo/?palette=' + sim.palette + '&theme=' + sim.theme + (extra || '') + '&v=' + Date.now();
+    bar.classList.toggle('dark', sim.theme === 'dark' || sim.palette === 'champagne');
+    document.querySelectorAll('#simPals button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.palette === sim.palette ? 'true' : 'false'); });
+    document.querySelectorAll('#simModes [data-theme]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.theme === sim.theme ? 'true' : 'false'); });
+  }
+  frame.addEventListener('load', function(){ setTimeout(function(){ document.getElementById('simLoading').classList.add('off'); }, 400); });
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(screen); else window.addEventListener('resize', fit);
+  fit();
+  // load once it is near the viewport
+  var simStarted = false;
+  function simStart(){ if (simStarted) return; simStarted = true; load(); }
+  if ('IntersectionObserver' in window) { var so = new IntersectionObserver(function(es){ if (es.some(function(e){ return e.isIntersecting; })) { simStart(); so.disconnect(); } }, {rootMargin:'600px'}); so.observe(screen); } else simStart();
+  document.querySelectorAll('#simPals button').forEach(function(b){ b.addEventListener('click', function(){ sim.palette = b.dataset.palette; if (b.dataset.palette === 'champagne') sim.theme = 'dark'; if (b.dataset.palette === 'arctic') sim.theme = 'light'; load(); }); });
+  document.querySelectorAll('#simModes [data-theme]').forEach(function(b){ b.addEventListener('click', function(){ sim.theme = b.dataset.theme; load(); }); });
+  document.getElementById('simReset').addEventListener('click', function(){ sim = { palette:'sand', theme:'light' }; load('&reset=1'); });
+  // try-it tasks: scroll to the phone and show the task as a hint
+  document.querySelectorAll('.task').forEach(function(t){ t.addEventListener('click', function(){
+    simStart(); document.getElementById('simHint').innerHTML = t.dataset.hint;
+    document.getElementById('simulator').scrollIntoView({behavior:'smooth', block:'start'});
+  }); });
 
   // light / dark switch on the palettes band
   var reels = document.querySelector('.reels');
