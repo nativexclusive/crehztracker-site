@@ -277,7 +277,7 @@ details p a{color:var(--copper)}
 
 <nav class="nav" id="nav" aria-label="Main">
   <a class="brand" href="#top"><img src="img/icon-256.png" alt="">CrehzTracker</a>
-  <ul>
+  <ul id="navLinks">
     <li><a href="#capture">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#try">Try it</a></li>
@@ -285,6 +285,7 @@ details p a{color:var(--copper)}
     <li><a href="#faq">FAQ</a></li>
     <li><a href="tutorials.html">Tutorials</a></li>
   </ul>
+  <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <a class="btn btn-light js-store" href="#get">Download</a>
 </nav>
 
@@ -657,6 +658,10 @@ var APP_STORE_URL = 'https://apps.apple.com/app/id6803359455';
   if (APP_STORE_URL) document.querySelectorAll('.js-store').forEach(function(a){ a.href = APP_STORE_URL; a.rel = 'noopener'; });
 
   var nav = document.getElementById('nav');
+  // phone menu
+  var mb = document.querySelector('.menu-btn');
+  if (mb) { mb.addEventListener('click', function(){ var o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+    document.querySelectorAll('#navLinks a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); mb.setAttribute('aria-expanded','false'); }); }); }
   if (document.querySelector('.hero.light')) nav.classList.add('on-light');
   function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
