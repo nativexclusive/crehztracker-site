@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7D5XFW8AX3.com.crehz.CrehzTracker"],
+        "components": [
+          { "/": "/plaid/oauth", "comment": "Plaid OAuth return (bank sync)" },
+          { "/": "/plaid/oauth/*" }
+        ]
+      }
+    ]
+  }
+}
