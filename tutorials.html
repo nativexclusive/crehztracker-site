@@ -38,7 +38,7 @@ body{color-scheme:light only}
 .tip b{font-family:var(--head)}
 .tut .media{display:flex;justify-content:center;position:relative}
 .tut .media .blob{position:absolute;inset:8% 6%;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--copper-soft);z-index:0}
-.tut .media .phone{width:300px;z-index:1}
+.tut .media .phone{width:360px;max-width:100%;z-index:1} /* the features page's phone size */
 .phone .screen video{cursor:pointer}
 .vbtn{position:absolute;z-index:3;left:50%;bottom:4%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:#fff;border:0;border-radius:999px;padding:8px 14px;font:700 12.5px/1 var(--head);cursor:pointer;backdrop-filter:blur(6px)}
 .phone{position:relative}
@@ -92,7 +92,7 @@ body{color-scheme:light only}
 }
 @media (max-width:640px){
   body{font-size:16px}.wrap{padding:0 16px}
-  .tut{padding:70px 0}.tut .media .phone{width:240px}
+  .tut{padding:70px 0}.tut .media .phone{width:300px}
   .places{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}
 }
 </style>
@@ -121,7 +121,7 @@ body{color-scheme:light only}
       <a href="#onboarding">Onboarding</a><a href="#expenses">Expenses</a><a href="#income">Income</a><a href="#mileage">Mileage</a>
       <a href="#receipt-inbox">Receipt Inbox</a><a href="#receipts-invoices">Receipts &amp; Invoices</a><a href="#billable-hours">Billable Hours</a>
       <a href="#recipients">1099 Recipients</a><a href="#home-office">Home Office</a><a href="#profiles">Profiles</a><a href="#themes">Themes</a>
-      <a href="#dictation">Say it</a><a href="#notepad">Write it</a><a href="#shortcuts">Apple Pay &amp; screenshots</a>
+      <a href="#dictation">Say it</a><a href="#notepad">Write it</a><a href="#insights">Insights</a><a href="#offline">No signal</a><a href="#shortcuts">Apple Pay &amp; screenshots</a>
     </nav>
   </div>
 </header>
@@ -378,6 +378,47 @@ body{color-scheme:light only}
     </div>
     <div class="media rv"><div class="blob"></div>
       <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/notepad.mp4" poster="media/tutorials/notepad-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== INSIGHTS ====== -->
+<section class="tut flip pal pal-periwinkle" id="insights">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">14 · Insights<span class="dur">42 s</span></span>
+      <h2>Flip the page for Insights</h2>
+      <p class="lead">Tap the glowing button above <b>Expenses</b> or <b>Income</b> and the page turns over to what your numbers say.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Overview:</b> where the money went this month, how it compares with last month, and one plain sentence from CAI on the biggest change.</span></li>
+        <li><span class="n">2</span><span><b>Subscriptions</b> and <b>Bills:</b> what renews, what&rsquo;s due in the next 30 days, and any price rises, found from your own entries.</span></li>
+        <li><span class="n">3</span><span><b>Change the month</b> with the arrows: every tab then shows what happened in that month instead.</span></li>
+        <li><span class="n">4</span><span>On <b>Income</b>, <b>Payers</b> shows who pays you, how often, and when the next payday should be.</span></li>
+      </ol>
+      <div class="tip">Tap a subscription, bill or payer to jump to that entry.</div>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/insights.mp4" poster="media/tutorials/insights-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== OFFLINE QUEUE ====== -->
+<section class="tut pal pal-lagoon" id="offline">
+  <div class="wrap">
+    <div class="copy rv">
+      <span class="eyebrow">15 · No signal<span class="dur">28 s</span></span>
+      <h2>Scan it now, read it later</h2>
+      <p class="lead">No signal in the basement venue? Scan anyway. The photo waits on your phone and is read when you&rsquo;re back online.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span><b>Scan as usual.</b> With no signal you&rsquo;ll see <b>Saved for later</b> instead of an error. Voice and written notes wait the same way.</span></li>
+        <li><span class="n">2</span><span>A card on <b>Expenses</b> shows what&rsquo;s waiting. Tap it to see each one: Waiting, Reading, Read.</span></li>
+        <li><span class="n">3</span><span>Back online, they&rsquo;re read by themselves and the card turns green. Tap <b>Check and save</b>.</span></li>
+      </ol>
+      <div class="tip">A waiting photo doesn&rsquo;t use a scan until it&rsquo;s read, and nothing is saved until you check it.</div>
+    </div>
+    <div class="media rv"><div class="blob"></div>
+      <div class="phone"><i class="keys"></i><div class="screen"><video src="media/tutorials/offline-queue.mp4" poster="media/tutorials/offline-queue-poster.jpg" muted loop playsinline preload="metadata"></video></div><button class="vbtn" type="button">▶ Play</button></div>
     </div>
   </div>
 </section>
